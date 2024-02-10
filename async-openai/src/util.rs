@@ -2,7 +2,7 @@
 use std::path::Path;
 
 use reqwest::Body;
-#[cfg(feature = "tokio")]
+#[cfg(all(not(feature = "wasm"), feature = "tokio"))]
 use tokio::fs::File;
 #[cfg(feature = "tokio")]
 use tokio_util::codec::{BytesCodec, FramedRead};
